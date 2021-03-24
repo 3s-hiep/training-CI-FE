@@ -60,6 +60,7 @@ storybook.jest.config.js
 cypress/integration/**/__image_snapshots__/*.actual.png
 cypress/integration/**/__image_snapshots__/*.diff.png
 debug.log
-
+#jest
+/coverage
 # npm token
 .npmrc
