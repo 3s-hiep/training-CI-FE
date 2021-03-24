@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+$bg-missing: map-get($status, missing);
+
+:host {
+  ::ng-deep mat-nav-list cie-sidebar-child a p {
+    font-size: 1rem;
+    color: map-get($colors, black);
+    letter-spacing: 0px;
+  }
+  ::ng-deep cie-sidebar-child * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  ::ng-deep cie-sidebar-child .mat-list-item-content p,
+  ::ng-deep cie-sidebar-child .mat-list-item-content li {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+}

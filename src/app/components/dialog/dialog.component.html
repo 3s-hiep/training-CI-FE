@@ -1,0 +1,15 @@
+<div class="dialog">
+  <h4 class="title_header">{{ data?.title | translate }}</h4>
+  <p class="description">
+    {{ data?.text | translate }}<br />
+    <span>{{ data?.textConfirm | translate }}</span>
+  </p>
+  <div class="actions">
+    <cie-button *ngIf="!data.notCancelButton" class="cancel basic" (click)="onCancel()">{{
+      data?.buttonLabels?.cancel | translate
+    }}</cie-button>
+    <cie-button *ngIf="!data.notOkButton" class="confirm primary" (click)="onConfirm()">{{
+      data?.buttonLabels?.ok | translate
+    }}</cie-button>
+  </div>
+</div>

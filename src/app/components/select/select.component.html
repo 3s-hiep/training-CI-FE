@@ -1,0 +1,22 @@
+<div fxFlex="100%" fxLayout="column" class="select-box {{ getStyle() }}">
+  <mat-form-field [ngClass]="notValid ? 'not-valid' : 'valid'">
+    <mat-label class="select-placeholder" data-test="show-placeholder" *ngIf="!selectedItem">{{ placeholder | translate }}</mat-label>
+    <mat-select
+      class="{{ !selectedItem ? 'not-select' : 'on-select' }}"
+      fxFlex="100%"
+      [aria-label]="label"
+      [(value)]="selectedItem"
+      (selectionChange)="onSelectionChange($event.value)"
+      [disabled]="disabled ? disabled : false"
+      [placeholder]="label | translate"
+    >
+      <mat-option *ngIf="placeholder"> {{ placeholder | translate }} </mat-option>
+      <mat-option *ngFor="let item of items" [value]="item?.value" class="select-option">
+        {{ item?.label | translate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="notValid" class="alert alert-danger">
+    <span class="error-message">{{ message | translate }}</span>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+@import "src/styles.scss";
+
+$header-height: 3.5rem;
+$side-padding: 1.5625rem;
+
+:host {
+  display: block;
+  height: $header-height;
+  position: relative;
+  header {
+    background-color: #19243b;
+    height: $header-height;
+    display: flex;
+    align-items: cie-ter;
+    padding: 0 $side-padding;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100 !important;
+
+    cie-header-title {
+      color: map-get($glory-main-natural, 000);
+      padding: 0 $side-padding 0 0;
+      flex: 0 0 auto;
+    }
+
+    cie-dropdown-menu {
+      background-color: map-get($glory-main-natural, 000);
+      position: absolute;
+      right: $side-padding;
+      top: $header-height;
+    }
+  }
+  ::ng-deep cie-svg-icon span.icon-text {
+    color: #fff;
+    line-height: 2.3;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  ::ng-deep cie-dropdown-menu cie-dropdown-menu-item div {
+    font-size: 1rem;
+  }
+}

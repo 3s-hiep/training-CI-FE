@@ -1,0 +1,120 @@
+@import "src/styles.scss";
+
+:host {
+  &:disabled,
+  &.disabled {
+    opacity: 0.25;
+  }
+
+  &.nowrap {
+    white-space: nowrap !important;
+  }
+
+  button {
+    height: 2.5rem;
+    width: 10rem;
+    max-width: 100%;
+    border: 1px solid map-get($glory-main-natural, 000);
+    border-radius: 8px;
+    font-size: 20px;
+    $base-color: map-get($glory-main-natural, 000);
+
+    background-color: $base-color;
+    color: map-get($glory-main-natural, 900);
+
+    &:hover {
+      background-color: darken($base-color, 8%);
+    }
+
+    &:active {
+      background-color: darken($base-color, 16%);
+    }
+  }
+
+  & {
+    $base-color: map-get($glory-secondary-blue, 600);
+    &.primary {
+      button {
+        border: 1px solid map-get($glory-secondary-blue, 600);
+        background-color: $base-color;
+        color: map-get($map: $colors, $key: white);
+      }
+    }
+
+    &:not(.disabled):not(:disabled).primary {
+      button {
+        &:hover {
+          background-color: rgba($base-color, 0.8);
+        }
+        &:active {
+          background-color: $base-color;
+        }
+      }
+    }
+  }
+
+  & {
+    $base-color: map-get(
+      $map: $colors,
+      $key: dark-blue,
+    );
+    &.secondary {
+      button {
+        border: none;
+        background-color: $base-color;
+        color: map-get($map: $colors, $key: white);
+      }
+    }
+    &:not(.disabled):not(:disabled).secondary {
+      button {
+        &:hover {
+          background-color: darken($base-color, 8%);
+        }
+
+        &:active {
+          background-color: darken($base-color, 16%);
+        }
+      }
+    }
+  }
+
+  & {
+    $base-color: map-get($glory-main-natural, 000);
+    &.basic {
+      button {
+        border: 1px solid map-get($glory-main-natural, 400);
+        background-color: $base-color;
+        color: map-get($glory-main-natural, 900);
+      }
+    }
+    &:not(.disabled):not(:disabled).basic {
+      button {
+        &:hover {
+          background-color: darken($base-color, 8%);
+        }
+        &:active {
+          background-color: darken($base-color, 16%);
+        }
+      }
+    }
+  }
+}
+
+:host-context(.user-filter-button) {
+  button {
+    width: 10rem;
+    height: 2.5rem;
+  }
+}
+.btn-disable {
+  $base-color: map-get($glory-main-natural, 000);
+  opacity: 0.25;
+  cursor: unset;
+  // &:active {
+  //   background-color: $base-color;
+  // }
+}
+.btn-save {
+  opacity: 1;
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+@import "src/styles.scss";
+
+:host {
+  .section {
+    margin-bottom: 1rem;
+  }
+  .section-header-page {
+    border-bottom: 2px solid #d3d7e0;
+    background: #f3f4f9 0% 0% no-repeat padding-box;
+  }
+  .section-table {
+    margin-top: 1.56rem;
+  }
+  ::ng-deep {
+    cie-header-page {
+      border-bottom: initial;
+
+      width: 100%;
+      .cie-header-page {
+        width: 100%;
+
+        cie-button {
+          float: right;
+        }
+      }
+    }
+    cie-header-page cie-button {
+      position: absolute;
+      right: 0;
+    }
+    cie-header-page .cie-header-page {
+      position: relative;
+    }
+    cie-table tbody tr.delete-flag td:not(.action) cie-table-cell {
+      color: rgba($color: map-get($colors, black), $alpha: 0.25);
+    }
+
+    cie-table tbody tr.delete-flag td.userId cie-table-cell a {
+      color: rgba($color: map-get($colors, black), $alpha: 0.25);
+      cursor: text;
+    }
+  }
+  ::ng-deep cie-button {
+    float: right;
+    button : {
+      background-color: map-get($glory-main-natural, 600);
+    }
+  }
+  padding-bottom: 2rem;
+}

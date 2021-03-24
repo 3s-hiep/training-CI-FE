@@ -1,0 +1,33 @@
+@import "src/styles.scss";
+:host {
+  ::ng-deep cie-select .mat-form-field-infix .mat-form-field-label-wrapper .mat-form-field-label:not(.mat-form-field-empty) span {
+    display: none;
+  }
+  .user-filter {
+    display: flex;
+    .area {
+      width: 20%;
+      text-align: left;
+      .item {
+        display: table !important;
+        width: 100%;
+      }
+    }
+  }
+  .actions {
+    display: flex;
+    .btn {
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 1px;
+      font-size: 1.5rem;
+    }
+  }
+
+  .label {
+    padding-bottom: 4px;
+  }
+  .user-filter ::ng-deep cie-button button {
+    width: 100%;
+  }
+}

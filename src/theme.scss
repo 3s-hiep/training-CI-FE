@@ -1,0 +1,124 @@
+@import "~@angular/material/theming";
+@include mat-core();
+/*
+* Design Style GuideLine
+*/
+// -- Font -----------------------------------------------------------------------
+$glory-font: (
+  main: "sans-serif",
+);
+
+// -- Color Format ----------------------------------------------------------------------
+@mixin disabled {
+  opacity: 0.25;
+}
+
+@mixin background {
+  background-color: map-get($glory-main-natural, 100);
+}
+
+@mixin link {
+  color: map-get($glory-secondary-blue, 400);
+}
+
+// -- Color ----------------------------------------------------------------------
+/*
+* text: 900
+* icon, header: 800
+* background: 100
+*/
+$glory-main-natural: (
+  1000: #000000,
+  900: #101624,
+  800: #19243b,
+  700: #3b475f,
+  600: #5c667d,
+  500: #7b8394,
+  400: #b4b9c7,
+  300: #d1d5e0,
+  200: #e7eaf2,
+  100: #f3f4f9,
+  50: #f8f8f8,
+  000: #ffffff,
+  filter: (
+    1000: invert(0%) sepia(100%) saturate(7464%) hue-rotate(185deg) brightness(94%) contrast(100%),
+  ),
+);
+/*
+* Secondary
+* Red
+* This Color express infomation of Error or Issued status
+* and usecase is warning to destroyed workflow and block
+*
+* base: 500
+*/
+$glory-secondary-red: (
+  700: #98210a,
+  600: #b82609,
+  500: #dc2400,
+  400: #e74e30,
+  300: #ea7f6a,
+  200: #f1a596,
+  100: #fdcdc4,
+);
+/*
+* Secondary
+* Yellow and Orange
+* This Color express warging or issuing, prevending progress status
+*
+* base: 500
+*/
+$glory-secondary-yellow: (
+  700: #e0ae00,
+  600: #f0c001,
+  500: #ffd800,
+  400: #fee23e,
+  300: #fce868,
+  200: #fced8e,
+  100: #fff6de,
+);
+$glory-secondary-orange: (
+  700: #c67000,
+  600: #e48100,
+  500: #ff9000,
+  400: #ffa329,
+  300: #ffb85b,
+  200: #ffcd8a,
+  100: #ffe0b7,
+);
+/*
+* Secondary
+* Green
+* This Color express Safety and Normal status, Successful
+*
+* base: 500
+*/
+$glory-secondary-green: (
+  700: #046a47,
+  600: #06865b,
+  500: #00a16a,
+  400: #22bb86,
+  300: #4ecfa3,
+  200: #8fe7c9,
+  100: #bbf1df,
+);
+/*
+* Secondary
+* Blue
+* This Color express Authentication, Connected, Progress state (indication, induction)
+*
+* base: 500
+*/
+$glory-secondary-blue: (
+  700: #094188,
+  600: #0050b4,
+  500: #006ad7,
+  400: #228ae6,
+  300: #57a6ec,
+  200: #8ec1f6,
+  100: #c4e0fd,
+);
+$custom-typography: mat-typography-config(
+  $font-family: '"Noto Sans", sans-serif;',
+);
+@include mat-core($custom-typography);

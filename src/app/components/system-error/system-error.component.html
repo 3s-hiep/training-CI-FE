@@ -1,0 +1,19 @@
+<div class="errors">
+  <div class="error-content">
+    <cie-svg-icon
+      *ngIf="errorData?.level"
+      [icon]="errorData?.level"
+      [iconAlt]="errorData?.level"
+      [width]="67"
+      [height]="68"
+      [color]="getIconColor(errorData?.level)"
+    ></cie-svg-icon>
+    <h2 class="title">{{ errorData?.title | translate }}</h2>
+    <p class="content">{{ errorData?.content | translate }}</p>
+    <div class="link" *ngIf="errorData?.links">
+      <a *ngFor="let link of errorData.links" [href]="link?.url">
+        <span>{{ link?.text | translate }}</span>
+      </a>
+    </div>
+  </div>
+</div>

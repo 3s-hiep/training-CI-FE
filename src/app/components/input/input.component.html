@@ -1,0 +1,16 @@
+<div fxFlex="100%" fxLayout="column">
+  <label *ngIf="labels?.aria" fxFlex="100%" fxLayout="row">{{ labels?.aria | translate }} </label>
+  <div class="row" fxLayout="row" fxFlex="100%">
+    <input
+      matInput
+      [placeholder]="labels?.placeholder | translate"
+      [attr.aria-label]="labels?.aria | translate"
+      [formControl]="formControl"
+      [value]="defaultValue ? defaultValue : ''"
+      [ngClass]="notValid ? 'not-valid' : 'valid'"
+    />
+  </div>
+  <div *ngIf="notValid" fxFlex="100%" fxLayout="row" class="alert alert-danger">
+    <span class="error-message">{{ message | translate }}</span>
+  </div>
+</div>

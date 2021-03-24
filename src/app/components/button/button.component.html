@@ -1,0 +1,9 @@
+<button
+  [ngClass]="isDisabled ? 'btn-disable' : 'btn-save'"
+  type="button"
+  [disabled]="isDisabled"
+  [attr.required]="required"
+  [attr.aria-required]="required"
+>
+  <ng-content></ng-content>
+</button>

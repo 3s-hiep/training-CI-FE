@@ -1,0 +1,11 @@
+@import "src/styles.scss";
+
+:host {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    cursor: pointer;
+    border: 1px solid map-get($glory-main-natural, 400);
+  }
+}

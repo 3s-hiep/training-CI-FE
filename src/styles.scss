@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./theme.scss";
+html * {
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+$colors: (
+  black: #101624,
+  light-black: #282828,
+  dark-gray: #3b475f,
+  gray: #b4b9c7,
+  light-gray: #d1d5e0,
+  dark-white: #f3f3f3,
+  white: #ffffff,
+  blue: #0050b4,
+  dark-blue: #232d43,
+  gray-font: #455364,
+  light-line: #d7dbe4,
+  side-content: #f4f4f4,
+);
+
+$status: (
+  error: #e74e30,
+  good: #22bb86,
+  missing: #d1d5e0,
+);
+.cdk-overlay-container {
+  .mat-dialog-container {
+    padding: initial;
+  }
+}
+
+$padding: (
+  side: 0.75rem,
+);
+$header: (
+  height: 3rem,
+);
+
+body {
+  color: map-get($glory-main-natural, 1000);
+}
+span,
+p,
+a,
+b,
+i {
+  font: inherit;
+  font-weight: lighter;
+}
+.font-size-small {
+  font-size: 0.875rem;
+}
+.font-size-medium {
+  font-size: 1rem;
+}
+
+.font-size-lager {
+  font-size: 1.3rem;
+}
+
+.font-size-big {
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 4.6rem;
+}
+h2 {
+  font-size: 3.6rem;
+}
+h3 {
+  font-size: 2.8rem;
+}
+th {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.content-page {
+  padding: 0 1.562rem 1.562rem 1.562rem;
+}
+a {
+  text-decoration: none;
+}
+.mat-dialog-container {
+  padding: 0 !important;
+  color: map-get($glory-main-natural, 1000);
+  hr {
+    border-color: map-get($glory-main-natural, 300);
+  }
+}
+cie-loading {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}

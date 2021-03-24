@@ -1,0 +1,24 @@
+<header>
+  <div fxFlex="100%" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30">
+    <div fxLayout="column" fxFlex="60%" fxLayoutAlign="start">
+      <cie-header-title [title]="title" (click)="onClickTitle()"></cie-header-title>
+    </div>
+    <div fxLayout="column" fxFlex="40%" fxLayoutAlign="space-around end">
+      <cie-svg-icon
+        [url]="user.url"
+        [alt]="user.alt"
+        [width]="36"
+        [height]="36"
+        [text]="userName"
+        color="white"
+        (click)="isUserMenuOpened = !isUserMenuOpened"
+      ></cie-svg-icon>
+
+      <cie-dropdown-menu *ngIf="isUserMenuOpened">
+        <cie-dropdown-menu-item *ngFor="let item of userMenus" [label]="item" (click)="onClickUserMenu(item)"> </cie-dropdown-menu-item>
+        <cie-dropdown-menu-item label="Japanese" (click)="onSetLang('ja')"> </cie-dropdown-menu-item>
+        <cie-dropdown-menu-item label="English" (click)="onSetLang('en')"> </cie-dropdown-menu-item>
+      </cie-dropdown-menu>
+    </div>
+  </div>
+</header>

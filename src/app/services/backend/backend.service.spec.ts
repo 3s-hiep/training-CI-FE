@@ -4,10 +4,12 @@ import {
   HttpTestingController,
 } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
+import { of } from "rxjs";
 
 import { BackendService } from "./backend.service";
-import { FirstLogin } from "./backend.service.model";
+import { FirstLogin, IUser, Store, User } from "./backend.service.model";
 import { Constant } from "../../app.constant";
+
 import EndPoint from "./end-point.constant";
 
 const errorResponses = [
@@ -366,59 +368,6 @@ describe("BackendService", () => {
       http.expectOne({}).error(new ErrorEvent("error"), opts);
 
       // assert
-      http.verify();
-    });
-  });
-
-  describe("put user-setting", () => {
-    it("should return url", () => {
-      // arrange
-      const key = {
-        name: "sample",
-        value: "en",
-      };
-      const url = `${EndPoint.USER_SETTING}/languages?applicationId=${Constant.APPLICATION_ID}`;
-      // act
-      // assert
-
-      service
-        .putUserSettings(key, "languages", Constant.APPLICATION_ID)
-        .subscribe({
-          next: (actual) => expect(actual).toEqual(url),
-
-          error: (err) => fail(err),
-        });
-
-      // act
-      http
-        .expectOne({
-          url: `${url}`,
-          method: "PUT",
-        })
-        .flush([]);
-
-      // assert
-      http.verify();
-    });
-
-    it("return error", () => {
-      const key = {
-        name: "sample",
-        value: "en",
-      };
-      const opts = { code: 400, statusText: "Invalid Request Body" };
-      service
-        .putUserSettings(key, "languages", Constant.APPLICATION_ID)
-        .subscribe({
-          // assert
-          next: (data) => fail(`should not return any data, but got ${data}`),
-          error: (error) => {
-            expect(error).toBeInstanceOf(HttpErrorResponse);
-          },
-          complete: () => fail("should return error"),
-        });
-      // act
-      http.expectOne({}).error(new ErrorEvent("error"), opts);
       http.verify();
     });
   });

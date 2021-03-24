@@ -1,0 +1,14 @@
+@import "src/styles.scss";
+:host {
+  .cie-container {
+    width: 100%;
+    min-height: calc(100vh - 3.5rem);
+    display: flow-root;
+    .cie-container-sidebar {
+      width: 18.75rem;
+      height: 100%;
+      background: map-get($glory-main-natural, 300) 0% 0% no-repeat padding-box;
+      opacity: 1;
+    }
+  }
+}

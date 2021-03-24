@@ -1,0 +1,14 @@
+<div class="cie-master">
+  <cie-header
+    [title]="title"
+    [isUserMenuOpened]="isUserMenuOpened"
+    [userMenus]="userMenus"
+    (selectedUserMenu)="onSelectedUserMenu($event)"
+  ></cie-header>
+  <mat-drawer-container class="cie-container">
+    <mat-drawer mode="side" opened class="cie-container-sidebar">
+      <cie-sidebar [isExpanded]="true"></cie-sidebar>
+    </mat-drawer>
+    <mat-drawer-content class="cie-container-content"><router-outlet></router-outlet></mat-drawer-content>
+  </mat-drawer-container>
+</div>

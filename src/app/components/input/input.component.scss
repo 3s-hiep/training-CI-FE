@@ -1,0 +1,35 @@
+@import "src/styles.scss";
+
+:host {
+  width: 100%;
+  display: contents;
+  box-sizing: border-box;
+  position: relative;
+  input {
+    width: 100%;
+    border: 1px solid map-get($glory-main-natural, 400);
+    background: inherit 0% 0% no-repeat padding-box;
+    height: 1.8125rem;
+    padding: 0.3125rem;
+    &::placeholder {
+      color: #ffffff 0% 0% no-repeat padding-box;
+    }
+  }
+  input:focus {
+    outline: none;
+  }
+  .error-message {
+    color: map-get($glory-secondary-red, 500);
+    font-size: 0.75rem;
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+  .not-valid {
+    border: 1px solid map-get($glory-secondary-red, 500);
+  }
+  .label {
+    font-size: 0.875rem;
+    color: map-get($glory-main-natural, 1000);
+  }
+}

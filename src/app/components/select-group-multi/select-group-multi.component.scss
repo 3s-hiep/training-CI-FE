@@ -1,0 +1,69 @@
+@import "../../../styles.scss";
+
+:host {
+  .content-component {
+    position: relative;
+  }
+  ::ng-deep {
+    mat-form-field {
+      width: 100%;
+      background-color: map-get($glory-main-natural, 000);
+    }
+    mat-form-field .mat-form-field-wrapper {
+      border: 1px solid map-get($glory-main-natural, 400);
+      border-radius: 0;
+      background: inherit 0% 0% no-repeat padding-box;
+      height: 1.8125rem;
+    }
+    mat-form-field .mat-select-value {
+      line-height: 1;
+      font-size: 0.875rem;
+    }
+    mat-form-field .mat-form-field-wrapper .mat-form-field-underline,
+    mat-form-field .mat-form-field-wrapper .mat-form-field-subscript-wrapper {
+      height: 0;
+      background-color: transparent;
+      outline: none;
+      display: none;
+    }
+    mat-form-field.mat-form-field {
+      line-height: 1;
+    }
+    mat-form-field.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+      padding: 0.3125rem;
+    }
+    .mat-form-field-flex .mat-select-value:focus,
+    .mat-form-field-flex mat-select:focus {
+      border: none;
+      outline: none;
+    }
+    mat-form-field {
+      padding: 0;
+    }
+    mat-form-field .mat-form-field-infix {
+      border: none;
+    }
+
+    mat-form-field .mat-form-field-label:not(.mat-form-field-empty) {
+      margin-top: 0.5rem;
+    }
+
+    mat-form-field .mat-select-value {
+      color: map-get($colors, black);
+    }
+    .not-valid .mat-form-field-wrapper {
+      border: 1px solid map-get($glory-secondary-red, 500) !important;
+    }
+  }
+  .error-message {
+    color: map-get($glory-secondary-red, 500);
+    font-size: 0.75rem;
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+
+  mat-form-field .mat-form-field-label {
+    display: none !important;
+  }
+}
