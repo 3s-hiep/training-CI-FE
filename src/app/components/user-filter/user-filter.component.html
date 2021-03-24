@@ -1,0 +1,65 @@
+<div fxLayout="row" class="user-filter" fxLayoutAlign="start">
+  <div fxLayout="column" fxFlex="80" fxFlex.lg="90" fxFlex.md="100">
+    <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start end">
+      <div fxLayout="column" fxFlex.lg="70" fxFlex="75">
+        <div fxLayout="row" fxFlex="100" fxLayoutGap="25px">
+          <div fxLayout="column" fxFlex="calc(100% / 3 - 25px)">
+            <div fxLayout="row" fxFlex="100">
+              <div class="label">{{ labels?.name?.aria | translate }}</div>
+            </div>
+            <div fxLayout="row" fxFlex="100">
+              <cie-input
+                [defaultValue]="tempFilter?.name"
+                (value)="onChangedInput($event)"
+                [labels]="{ placeholder: labels?.name?.placeholder }"
+              >
+              </cie-input>
+            </div>
+          </div>
+          <div fxLayout="column" fxFlex="calc(100% / 3 - 25px)">
+            <div fxLayout="row" fxFlex="100">
+              <div class="label">{{ labels?.area?.aria | translate }}</div>
+            </div>
+            <div fxLayout="row" fxFlex="100">
+              <cie-select
+                [label]="labels?.area?.placeholder | translate"
+                [placeholder]="labels?.area?.placeholder | translate"
+                [items]="userAreas"
+                [selectedItem]="tempFilter?.area"
+                (selected)="onAreaSelected($event)"
+                data-test="area-select"
+                fxFlex="100%"
+              ></cie-select>
+            </div>
+          </div>
+          <div fxLayout="column" fxFlex="calc(100% / 3 - 25px)">
+            <div fxLayout="row" fxFlex="100">
+              <div class="label">{{ labels?.store?.aria | translate }}</div>
+            </div>
+            <div fxLayout="row" fxFlex="100">
+              <cie-select
+                [label]="labels?.store?.placeholder"
+                [placeholder]="labels?.store?.placeholder | translate"
+                [items]="userStores"
+                [selectedItem]="tempFilter?.store"
+                (selected)="onStoreSelected($event)"
+                data-test="area-store"
+                fxFlex="100%"
+              ></cie-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column" fxFlex.lg="30" fxFlex="25">
+        <div fxLayout="row" fxLayoutGap="25px" class="user-filter">
+          <div fxLayout="column" fxFlex="50" fxFlex.lg="calc(50%-25px)">
+            <cie-button class="btn basic" (click)="onClickClear()" data-test="clear">{{ labels?.buttonClear | translate }}</cie-button>
+          </div>
+          <div fxLayout="column" fxFlex="50" fxFlex.lg="calc(50%-25px)">
+            <cie-button class="btn primary" (click)="onApply()" data-test="ok">{{ labels?.buttonApply | translate }}</cie-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="content-component" fxFlex="100%" fxLayout="column">
+  <mat-form-field class="select-mutil-box" [ngClass]="notValid ? 'not-valid' : 'valid'">
+    <mat-label class="select-placeholder" *ngIf="!selectedItem || selectedItem.length === 0"> {{ label | translate }}</mat-label>
+    <mat-select
+      fxFlex="100%"
+      [aria-label]="label"
+      [disabled]="disabled ? disabled : false"
+      [(value)]="!isStoryBook ? selectedItem : tempSelected"
+      (selectionChange)="onSelectionChange($event.value)"
+      [placeholder]="label | translate"
+      multiple
+    >
+      <mat-select-trigger>
+        {{ getDisplaySelectItem() }}
+      </mat-select-trigger>
+      <mat-optgroup *ngFor="let group of groups" [label]="group.name">
+        <mat-option *ngFor="let item of group.items" [value]="item.value">{{ item.label }}</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="notValid" class="alert alert-danger">
+    <span class="error-message">{{ message | translate }}</span>
+  </div>
+</div>

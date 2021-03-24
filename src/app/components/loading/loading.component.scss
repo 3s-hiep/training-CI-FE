@@ -1,0 +1,26 @@
+:host {
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: cie-ter;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border-width: 12px;
+    border-style: solid;
+    border-color: rgba(180, 180, 180, 0.1) #fff #fff;
+    animation: spinner_keyframes 1.5s infinite linear forwards;
+  }
+
+  @keyframes spinner_keyframes {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}

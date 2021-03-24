@@ -1,0 +1,32 @@
+<div class="container">
+  <a
+    class="align-center"
+    mat-list-item
+    (click)="onItemSelected(item)"
+    routerLinkActive="active"
+    [routerLink]="item?.route"
+    [ngClass]="{ active: item?.route ? router.isActive(item?.route, true) : false, expanded: expanded }"
+  >
+    <span fxFlex *ngIf="item?.children && item?.children.length">
+      <mat-icon [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'"> expand_more </mat-icon>
+      <span fxFlex></span>
+    </span>
+    <span class="hidden-icon" fxFlex *ngIf="!item?.children">
+      <mat-icon [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'"> expand_more </mat-icon>
+      <span fxFlex></span>
+    </span>
+    <p class="item-index">{{ index }}</p>
+    <li class="item-name" *ngIf="item?.isChildren">
+      <a
+        routerLinkActive="active"
+        [ngClass]="{ active: item?.route ? router.isActive(item?.route, true) : false, expanded: expanded }"
+        [routerLink]="item?.route"
+        >{{ item?.displayName | translate }}</a
+      >
+    </li>
+    <p *ngIf="!item?.isChildren">{{ item?.displayName | translate }}</p>
+  </a>
+  <div *ngIf="expanded">
+    <cie-sidebar-child *ngFor="let child of item?.children" [item]="child"> </cie-sidebar-child>
+  </div>
+</div>

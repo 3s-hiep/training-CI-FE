@@ -1,0 +1,36 @@
+:host {
+  display: inline-flex;
+  align-items: cie-ter;
+
+  .red {
+    filter: invert(25%) sepia(96%) saturate(6822%) hue-rotate(15deg) brightness(95%) contrast(101%);
+  }
+
+  .blue {
+    filter: invert(29%) sepia(96%) saturate(3884%) hue-rotate(199deg) brightness(92%) contrast(101%);
+  }
+
+  .green {
+    filter: invert(33%) sepia(88%) saturate(1696%) hue-rotate(140deg) brightness(95%) contrast(101%);
+  }
+
+  .orange {
+    filter: invert(61%) sepia(67%) saturate(3007%) hue-rotate(359deg) brightness(103%) contrast(104%);
+  }
+
+  .yellow {
+    filter: invert(79%) sepia(55%) saturate(1147%) hue-rotate(359deg) brightness(103%) contrast(103%);
+  }
+
+  .white {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(13deg) brightness(104%) contrast(104%);
+  }
+
+  .link {
+    filter: invert(22%) sepia(55%) saturate(2644%) hue-rotate(195deg) brightness(101%) contrast(103%);
+  }
+
+  .icon-text {
+    padding-left: 5px;
+  }
+}

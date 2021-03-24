@@ -1,0 +1,41 @@
+@import "../../../../styles.scss";
+
+$colors-black: map-get($colors, black);
+:host {
+  display: block;
+  outline: none;
+}
+
+.hidden-icon {
+  visibility: hidden;
+}
+.icon-dots {
+  font-size: 0.5rem;
+}
+::ng-deep .mat-list-item-content {
+  width: 100%;
+  padding: 0;
+}
+.mat-list-item {
+  padding: 7px 0;
+}
+.mat-icon {
+  display: flex;
+  align-items: center;
+}
+p,
+li {
+  font-size: 0.875rem;
+  text-align: left;
+  letter-spacing: 0px;
+  color: $colors-black;
+  opacity: 1;
+}
+div > .align-center {
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+}
+.item-index {
+  margin-right: 0.3rem;
+}

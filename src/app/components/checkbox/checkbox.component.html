@@ -1,0 +1,5 @@
+<div fxFlex="100%" fxLayout="column">
+  <mat-checkbox [aria-label]="labels?.aria | translate" [checked]="checkbox" (change)="onChangedValue($event)" [color]="color">
+    <ng-content></ng-content>
+  </mat-checkbox>
+</div>

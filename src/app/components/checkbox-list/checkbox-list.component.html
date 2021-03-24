@@ -1,0 +1,10 @@
+<div fxFlex="100%" fxLayout="column">
+  <div fxFlex="100%" *ngFor="let l of list">
+    <mat-checkbox
+      [aria-label]="label | translate"
+      [checked]="isChecked(l.value)"
+      (change)="onCheck($event.checked, l.value)"
+    ></mat-checkbox>
+    <span class="label">{{ l.label | translate }}</span>
+  </div>
+</div>

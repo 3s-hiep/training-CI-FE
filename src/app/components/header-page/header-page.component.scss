@@ -1,0 +1,12 @@
+@import "src/styles.scss";
+
+:host {
+  .cie-header-page-title {
+    color: map-get($glory-main-natural, 900);
+    font-size: 1.5rem;
+  }
+  background: map-get($glory-main-natural, 100) 0% 0% no-repeat padding-box;
+  border-bottom: 2px solid #d3d7e0;
+  padding: 1.313rem 1.562rem;
+  display: block;
+}

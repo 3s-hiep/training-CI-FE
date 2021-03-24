@@ -1,0 +1,20 @@
+@import "src/styles.scss";
+
+$highlight-color: map-get($glory-main-natural, 800);
+
+:host {
+  div {
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    background-color: rgba($color: $highlight-color, $alpha: 0);
+
+    &:hover {
+      background-color: rgba($color: $highlight-color, $alpha: 0.05);
+      border: 1px solid rgba($color: $highlight-color, $alpha: 0.15);
+    }
+
+    &:active {
+      background-color: rgba($color: $highlight-color, $alpha: 0.1);
+    }
+  }
+}

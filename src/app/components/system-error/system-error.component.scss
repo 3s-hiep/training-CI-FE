@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+
+$status-color: map-get($glory-secondary-red, 400);
+:host {
+  .errors {
+    min-height: 20em;
+    width: 540px;
+    display: flex;
+    align-items: cie-ter;
+    justify-content: cie-ter;
+    border: 1px solid map-get($glory-main-natural, 300);
+    margin: auto;
+    margin-top: 5%;
+    padding: 20px;
+    text-align: cie-ter;
+
+    cie-svg-icon {
+      margin: 16px;
+    }
+    .title {
+      margin: 16px;
+    }
+
+    .content {
+      margin: 10px;
+    }
+    .link {
+      margin-top: 45px;
+      a {
+        margin: 20px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .errors {
+      min-height: 15em;
+      width: 90%;
+      padding: 5px;
+    }
+  }
+}
