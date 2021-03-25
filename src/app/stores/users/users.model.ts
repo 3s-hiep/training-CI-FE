@@ -13,3 +13,7 @@ export interface ICommonName {
 }
 
 export type UserModel = User;
+export interface DataListModel {
+  // totalCount: number;
+  items: User[];
+}

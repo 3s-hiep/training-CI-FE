@@ -1,6 +1,6 @@
-import { UserModel } from "./users.model";
+import { UserModel, DataListModel } from "./users.model";
 import { Action, ActionReducer, combineReducers } from "@ngrx/store";
-import { EntityState } from "@ngrx/entity";
+// import { EntityState } from "@ngrx/entity";
 
 export enum ActionTypes {
     // Get Users
@@ -26,13 +26,13 @@ export type UserActions = GetList | GetListSuccess | GetListFailure;
 
 export interface State {
   users: UserModel[];
-  err: Error;
+  err?: Error;
   // users1: EntityState<UserModel>;
 }
 
 export const initialState: State = {
     users: [],
-    err: null,
+    err: undefined,
 }
 
 export function userReducer(state = initialState.users, action: UserActions) {
@@ -46,4 +46,13 @@ export function userReducer(state = initialState.users, action: UserActions) {
     default:
       return state;
   }
+}
+
+export const reducer: ActionReducer<State, Action> = combineReducers({
+  users: userReducer,
+})
+
+// Projectors
+export const projectors = {
+  users: (state: State) => state.users,
 }

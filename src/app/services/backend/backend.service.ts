@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 
 import { FirstLogin, Token, UserInfo } from "./backend.service.model";
 import EndPoint from "./end-point.constant";
+import { Observable } from 'rxjs';
+import { UserModel, DataListModel } from "../../stores/users/users.model"
 
 @Injectable({
   providedIn: "root",
@@ -85,5 +87,10 @@ export class BackendService {
       `${EndPoint.USER_SETTING}/${settingKey}?applicationId=${applicationId}`,
       data
     );
+  }
+
+  public getUserList(): Observable<UserModel[]> {
+    const url = 'https://5d8db435370f02001405c26a.mockapi.io/items';
+    return this.http.get<UserModel[]>(url);
   }
 }

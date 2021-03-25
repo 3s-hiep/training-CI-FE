@@ -8,16 +8,19 @@ import {
 import { routerReducer, RouterReducerState } from "@ngrx/router-store";
 
 import * as SettingsStore from "./settings";
+import * as UsersStore from "./users/users";
 
 // States
 export interface AppState {
   settings: SettingsStore.State;
   router: RouterReducerState;
+  users: UsersStore.State;
 }
 
 export const initialState: AppState = {
   settings: SettingsStore.initialState,
   router: null,
+  users: UsersStore.initialState,
 };
 
 // Reducers
@@ -27,6 +30,7 @@ export function getReducers(): ActionReducerMap<AppState> {
   return {
     settings: SettingsStore.reducer,
     router: routerReducer,
+    users: UsersStore.reducer,
   };
 }
 
@@ -48,3 +52,5 @@ export const langSelector = createSelector<
   SettingsStore.State,
   string
 >(settingsFeatureSelector, SettingsStore.selectors.lang);
+
+export const usersFeatureSelector = createFeatureSelector<AppState, UsersStore.State>("users");
