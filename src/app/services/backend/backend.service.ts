@@ -90,7 +90,7 @@ export class BackendService {
   }
 
   public getUserList(): Observable<UserModel[]> {
-    const url = 'https://5d8db435370f02001405c26a.mockapi.io/items';
+    const url = 'https://5d8db435370f02001405c26a.mockapi.io/users';
     return this.http.get<UserModel[]>(url);
   }
 }

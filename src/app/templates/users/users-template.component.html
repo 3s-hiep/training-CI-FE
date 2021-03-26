@@ -1,4 +1,4 @@
-<div class="cie-uses-page">
+<!-- <div class="cie-uses-page">
   <div class="section section-header-page" fxLayout="row" fxLayoutAlign="space-between center">
     <cie-header-page data-test="header-page" [title]="pageTitle"
       ><cie-button class="primary" data-test="button-create" (click)="onCreateButtonUsers()">{{
@@ -27,6 +27,24 @@
         [paginationOptions]="tableAction?.paginationOptions"
         [havePagination]="tableAction?.havePagination"
         [displayedColumns]="tableAction?.displayedColumns"
+        [data]="dataTable"
+      ></cie-table>
+    </div>
+  </div>
+</div> -->
+
+<div class="cie-uses-page">
+  <div class="section section-header-page" fxLayout="row" fxLayoutAlign="space-between center">
+    <cie-header-page data-test="header-page" [title]="pageTitle">
+      <!-- <cie-button class="primary" data-test="button-create" (click)="onCreateButtonUsers()">button1</cie-button> -->
+      <!-- <strong>User list</strong> -->
+    </cie-header-page>
+  </div>
+  <div class="content-page content-uses-page">
+    <div class="section section-table">
+      <cie-table
+        data-test="user-table"
+        [displayedColumns]="displayColumns"
         [data]="dataTable"
       ></cie-table>
     </div>

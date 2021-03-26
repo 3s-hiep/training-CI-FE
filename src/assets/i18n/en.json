@@ -83,6 +83,7 @@
   },
   "usersPage": {
     "pageTitle": "User",
+    "userTitle": "User List",
     "textButton": "Create",
     "filter": {
       "name": {

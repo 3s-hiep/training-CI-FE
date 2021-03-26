@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { LabelledValue, Labels, UserFilter } from "../../components/user-filter/user-filter.i";
-import { IDataTable, ITableAction } from "./users-template.i";
+import { UserModel } from "../../stores/users/users.model";
+import { IDisplayColumn } from "../../components/table/table.component.i";
+// import { LabelledValue, Labels, UserFilter } from "../../components/user-filter/user-filter.i";
+import { IDataTable, ITableAction, ITableUsersAcrion } from "./users-template.i";
 
 @Component({
   selector: "cie-users-template",
@@ -9,49 +11,56 @@ import { IDataTable, ITableAction } from "./users-template.i";
 })
 export class UsersTemplateComponent implements OnInit {
   @Input() pageTitle: string;
-  @Input() textButton: string;
 
-  @Input() tableAction: ITableAction;
+  @Input() tableAction: ITableUsersAcrion;
 
-  @Input() dataTable: IDataTable[];
+  @Input() displayColumns: IDisplayColumn[];
 
-  @Input() userFilter?: UserFilter;
+  @Input() dataTable: UserModel[];
 
-  @Input() userAreas?: LabelledValue<string>[];
+  // @Input() textButton: string;
 
-  @Input() userStores?: LabelledValue<string>[];
+  // @Input() tableAction: ITableAction;
 
-  @Input() labelsFilter?: Labels;
+  // @Input() dataTable: IDataTable[];
 
-  @Output() selectArea = new EventEmitter<string>();
+  // @Input() userFilter?: UserFilter;
 
-  @Output() clearFilter = new EventEmitter();
+  // @Input() userAreas?: LabelledValue<string>[];
 
-  @Output() filtered = new EventEmitter<UserFilter>();
+  // @Input() userStores?: LabelledValue<string>[];
 
-  @Output() pagination = new EventEmitter<any>();
-  @Output() createButtonUsers = new EventEmitter();
+  // @Input() labelsFilter?: Labels;
+
+  // @Output() selectArea = new EventEmitter<string>();
+
+  // @Output() clearFilter = new EventEmitter();
+
+  // @Output() filtered = new EventEmitter<UserFilter>();
+
+  // @Output() pagination = new EventEmitter<any>();
+  // @Output() createButtonUsers = new EventEmitter();
 
   constructor() {}
   ngOnInit(): void {
-    console.log(this.userAreas);
+    // console.log(this.userAreas);
   }
 
-  public onFilters(data: UserFilter) {
-    this.filtered.emit(data);
-  }
+  // public onFilters(data: UserFilter) {
+  //   this.filtered.emit(data);
+  // }
 
-  public onPagination(data: any) {
-    this.pagination.emit(data);
-  }
-  public onCreateButtonUsers() {
-    this.createButtonUsers.emit();
-  }
-  public onSelectArea(area: string) {
-    this.selectArea.emit(area);
-  }
+  // public onPagination(data: any) {
+  //   this.pagination.emit(data);
+  // }
+  // public onCreateButtonUsers() {
+  //   this.createButtonUsers.emit();
+  // }
+  // public onSelectArea(area: string) {
+  //   this.selectArea.emit(area);
+  // }
 
-  public onClearFilter() {
-    this.clearFilter.emit();
-  }
+  // public onClearFilter() {
+  //   this.clearFilter.emit();
+  // }
 }

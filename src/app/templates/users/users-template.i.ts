@@ -6,6 +6,10 @@ export interface ITableAction {
   havePagination?: boolean;
 }
 
+export interface ITableUsersAcrion {
+  displayColumns: IDisplayColumn[];
+}
+
 export interface IDataTable {
   id: any;
   name?: string;

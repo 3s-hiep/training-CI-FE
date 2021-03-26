@@ -1,4 +1,4 @@
-import { UserModel, DataListModel } from "./users.model";
+import { UserModel } from "./users.model";
 import { Action, ActionReducer, combineReducers } from "@ngrx/store";
 // import { EntityState } from "@ngrx/entity";
 
