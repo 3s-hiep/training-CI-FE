@@ -4,6 +4,8 @@ import { IDisplayColumn } from "../../components/table/table.component.i";
 import { IDataTable, ITableUsersAcrion } from "../../templates/users/users-template.i";
 import { displayColumns, userTitle } from "./users-page.constant";
 import { UsersService } from "../../services/user/users.service";
+import { map, tap } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "cie-users-page",
@@ -14,9 +16,8 @@ export class UsersPageComponent implements OnInit {
   public pageTitle: string;
   public tableAction :ITableUsersAcrion;
   public displayColumns: IDisplayColumn[];
-  public dataTable: any[];
-
-  // public dataTable: IDataTable[];
+  public dataTable: IDataTable[];
+  // public dataTable: UserModel[];
 
   constructor(public usersService: UsersService) {
     this.usersService.fetchDataUsers();
@@ -26,29 +27,30 @@ export class UsersPageComponent implements OnInit {
     this.pageTitle = userTitle;
     this.displayColumns = displayColumns;
 
-    // console.log('displayColumns', displayColumns, userTitle);
+    this.dataTable = [];
+    this.usersService.getDataUsers().pipe().subscribe((res:any)=>{
+        if(res && res['users']){
+          res['users'].map((item)=> {
+            console.log(item);
+            let areas = item.areas.map(item=> item.name).join(', ');
+            let stores = item.stores.map(item=> item.name).join(', ');
 
-    // data fake
-    // this.dataTable = [{id: '1', name: 'name1', area: 'area1', store: 'store1', action: 'action1'}]
-    // this.dataTable = [
+            // this.dataTable.push({...item, areas: areas, stores, action: "edit" });
+            this.dataTable = [...this.dataTable, {...item, areas: areas, stores, action: "edit" }];
+            console.log('this.dataTable', this.dataTable);
+          })
+        }
+    });
+
+
+    // this.dataTable =[
     //   {
-    //     "userId": "cisuser1",
-    //     "userName": "cis-user-1-1",
-    //     "deleteFlag": false,
-    //     "areas":'12',
-    //     "stores": '12',
-    //     "action": "edit"
-    //     // "action": () => {
-    //     //   return <button> 12</button>;
-    //     // }
-    //   },
-    //   {
-    //     "userId": "cisuser2",
-    //     "userName": "cis-user-1-2",
-    //     "deleteFlag": false,
-    //     "areas":'12',
-    //     "stores": '12',
-    //     "action": "edit"
+    //       "userId": "12",
+    //       "userName": "Name1",
+    //       "deleteFlag": true,
+    //       "areas": "area1",
+    //       "stores": "store1",
+    //       "action": "edit"
     //   }
     // ]
 

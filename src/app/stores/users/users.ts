@@ -14,11 +14,11 @@ export class GetList implements Action {
   constructor() {}
 }
 export class GetListSuccess implements Action {
-  readonly type = ActionTypes.GetUsersFailure;
+  readonly type = ActionTypes.GetUsersSuccess;
   constructor(public payload: UserModel[]) {}
 }
 export class GetListFailure implements Action {
-  readonly type = ActionTypes.GetUsersSuccess;
+  readonly type = ActionTypes.GetUsersFailure;
   constructor(public payload: { reason?: string; code?: number }) {}
 }
 

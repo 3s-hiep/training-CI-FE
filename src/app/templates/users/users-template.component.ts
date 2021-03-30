@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { UserModel } from "../../stores/users/users.model";
 import { IDisplayColumn } from "../../components/table/table.component.i";
 // import { LabelledValue, Labels, UserFilter } from "../../components/user-filter/user-filter.i";
@@ -9,14 +9,14 @@ import { IDataTable, ITableAction, ITableUsersAcrion } from "./users-template.i"
   templateUrl: "./users-template.component.html",
   styleUrls: ["./users-template.component.scss"],
 })
-export class UsersTemplateComponent implements OnInit {
+export class UsersTemplateComponent implements OnInit,OnChanges {
   @Input() pageTitle: string;
 
   @Input() tableAction: ITableUsersAcrion;
 
   @Input() displayColumns: IDisplayColumn[];
 
-  @Input() dataTable: UserModel[];
+  @Input() dataTable;
 
   // @Input() textButton: string;
 
@@ -42,8 +42,11 @@ export class UsersTemplateComponent implements OnInit {
   // @Output() createButtonUsers = new EventEmitter();
 
   constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("d", this.dataTable);
+  }
   ngOnInit(): void {
-    // console.log(this.userAreas);
+
   }
 
   // public onFilters(data: UserFilter) {

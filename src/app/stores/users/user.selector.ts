@@ -10,8 +10,8 @@ import { usersFeatureSelector as featureSelector, AppState } from "../index";
 // )
 // export const usersFeatureSelector = createFeatureSelector<{}, UsersStore.State>("users");
 
-export const userSelector = createSelector<AppState, UsersStore.State, UserModel[]>(
+export const usersSelector = createSelector<AppState, UsersStore.State, UserModel[]>(
     featureSelector,
-  // UsersStore.projectors.users
-    (state: UsersStore.State) => state.users
+    UsersStore.projectors.users
+    // (state: UsersStore.State) => state.users
   );

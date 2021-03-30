@@ -11,9 +11,9 @@ export interface ITableUsersAcrion {
 }
 
 export interface IDataTable {
-  id: any;
-  name?: string;
-  area?: string;
-  store?: string;
+  userId: string;
+  userName?: string;
+  areas?: string;
+  stores?: string;
   action?: any;
 }
