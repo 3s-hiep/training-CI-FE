@@ -9,61 +9,28 @@ import { IDataTable, ITableAction, ITableUsersAcrion } from "./users-template.i"
   templateUrl: "./users-template.component.html",
   styleUrls: ["./users-template.component.scss"],
 })
-export class UsersTemplateComponent implements OnInit,OnChanges {
+export class UsersTemplateComponent implements OnInit, OnChanges {
   @Input() pageTitle: string;
 
   @Input() tableAction: ITableUsersAcrion;
 
   @Input() displayColumns: IDisplayColumn[];
 
-  @Input() dataTable;
+  @Input() dataTable: IDataTable[];
 
-  // @Input() textButton: string;
+  @Output() createUser = new EventEmitter();
 
-  // @Input() tableAction: ITableAction;
-
-  // @Input() dataTable: IDataTable[];
-
-  // @Input() userFilter?: UserFilter;
-
-  // @Input() userAreas?: LabelledValue<string>[];
-
-  // @Input() userStores?: LabelledValue<string>[];
-
-  // @Input() labelsFilter?: Labels;
-
-  // @Output() selectArea = new EventEmitter<string>();
-
-  // @Output() clearFilter = new EventEmitter();
-
-  // @Output() filtered = new EventEmitter<UserFilter>();
-
-  // @Output() pagination = new EventEmitter<any>();
-  // @Output() createButtonUsers = new EventEmitter();
 
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("d", this.dataTable);
+    // console.log("d", this.dataTable);
   }
   ngOnInit(): void {
 
   }
 
-  // public onFilters(data: UserFilter) {
-  //   this.filtered.emit(data);
-  // }
+  public onCreateUser() {
+    this.createUser.emit();
+  }
 
-  // public onPagination(data: any) {
-  //   this.pagination.emit(data);
-  // }
-  // public onCreateButtonUsers() {
-  //   this.createButtonUsers.emit();
-  // }
-  // public onSelectArea(area: string) {
-  //   this.selectArea.emit(area);
-  // }
-
-  // public onClearFilter() {
-  //   this.clearFilter.emit();
-  // }
 }

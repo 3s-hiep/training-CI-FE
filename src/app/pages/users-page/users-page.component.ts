@@ -14,10 +14,11 @@ import { Observable } from "rxjs";
 })
 export class UsersPageComponent implements OnInit {
   public pageTitle: string;
-  public tableAction :ITableUsersAcrion;
+  public tableAction: ITableUsersAcrion;
   public displayColumns: IDisplayColumn[];
   public dataTable: IDataTable[];
-  // public dataTable: UserModel[];
+
+  // public labelDialog = createDetailUser;
 
   constructor(public usersService: UsersService) {
     this.usersService.fetchDataUsers();
@@ -28,35 +29,26 @@ export class UsersPageComponent implements OnInit {
     this.displayColumns = displayColumns;
 
     this.dataTable = [];
-    this.usersService.getDataUsers().pipe().subscribe((res:any)=>{
-        if(res && res['users']){
-          res['users'].map((item)=> {
-            console.log(item);
-            let areas = item.areas.map(item=> item.name).join(', ');
-            let stores = item.stores.map(item=> item.name).join(', ');
+    this.usersService.getDataUsers().pipe().subscribe((res: any) => {
+      if (res && res['users']) {
+        res['users'].map((item) => {
+          let areas = item.areas.map(item => item.name).join(', ');
+          let stores = item.stores.map(item => item.name).join(', ');
 
-            // this.dataTable.push({...item, areas: areas, stores, action: "edit" });
-            this.dataTable = [...this.dataTable, {...item, areas: areas, stores, action: "edit" }];
-            console.log('this.dataTable', this.dataTable);
-          })
-        }
+          // this.dataTable.push({...item, areas: areas, stores, action: "edit" });
+          this.dataTable = [...this.dataTable, { ...item, areas: areas, stores, action: "edit" }];
+        })
+      }
     });
 
-
-    // this.dataTable =[
-    //   {
-    //       "userId": "12",
-    //       "userName": "Name1",
-    //       "deleteFlag": true,
-    //       "areas": "area1",
-    //       "stores": "store1",
-    //       "action": "edit"
-    //   }
-    // ]
 
   }
 
   ngOnDestroy(): void {
+  }
+
+  public createUser() {
+    alert('okok')
   }
 
 
