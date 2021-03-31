@@ -20,6 +20,7 @@ export class UsersTemplateComponent implements OnInit, OnChanges {
 
   @Output() createUser = new EventEmitter();
 
+  @Output() handleOpenDialog = new EventEmitter();
 
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -31,6 +32,10 @@ export class UsersTemplateComponent implements OnInit, OnChanges {
 
   public onCreateUser() {
     this.createUser.emit();
+  }
+
+  public onOpenDialog() {
+    this.handleOpenDialog.emit();
   }
 
 }

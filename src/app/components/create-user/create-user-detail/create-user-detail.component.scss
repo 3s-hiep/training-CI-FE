@@ -1,0 +1,80 @@
+@import "src/styles.scss";
+:host {
+  width: 45rem;
+  display: block;
+}
+.page-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+// CSS for link to TOP PAGE
+::ng-deep {
+  cie-select-multi .mat-form-field-infix .mat-form-field-label-wrapper .mat-form-field-label:not(.mat-form-field-empty) span {
+    display: none;
+  }
+  cie-select-group-multi .mat-form-field-infix .mat-form-field-label-wrapper .mat-form-field-label:not(.mat-form-field-empty) span {
+    display: none;
+  }
+  .container {
+    align-items: center;
+    .content {
+      padding-top: 1.5625rem;
+      .field-group {
+        max-width: 25rem;
+        width: 100%;
+        margin: 0 auto;
+        .row {
+          .container-form {
+            .input-box,
+            .select-box {
+              border: 1px solid map-get($glory-main-natural, 400);
+              border-radius: 2px;
+              padding: 0.3125rem;
+            }
+            p {
+              margin-bottom: 0;
+              padding-top: 1.375rem;
+            }
+            .mat-input-element {
+              max-width: 25rem;
+              width: 100%;
+              border: none;
+              padding: 0;
+            }
+          }
+          mat-form-field .mat-form-field-wrapper {
+            border: 1px solid #b4b9c7;
+            border-radius: 2px;
+          }
+        }
+        .area {
+          margin-bottom: 1.5625rem;
+        }
+        .checkbox {
+          margin-top: 1.5625rem;
+          padding-bottom: 1.875rem;
+        }
+        mat-form-field {
+          width: 100%;
+          height: 2.5rem;
+        }
+      }
+      .action-buttons {
+        margin: 0.75rem 1rem;
+      }
+    }
+  }
+  .page-content {
+    width: 100%;
+    .page-title {
+      margin: 0 auto;
+      margin: 1.125rem 1.5rem;
+    }
+  }
+  .require {
+    color: map-get($glory-secondary-red, 500);
+  }
+  .label {
+    margin-bottom: 0.625rem;
+  }
+}

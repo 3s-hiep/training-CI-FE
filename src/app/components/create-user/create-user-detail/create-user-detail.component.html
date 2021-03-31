@@ -1,0 +1,91 @@
+<div class="container" role="main">
+  <div class="page-content">
+    <h3 class="page-title">{{ labels.pageTitle | translate }}</h3>
+    <hr />
+    <div class="content">
+      <div class="field-group">
+        <div class="area">
+          <div class="label">{{ labels.id | translate }}<span class="require">*</span></div>
+          <cie-input
+            class="input-id"
+            [labels]="tempFilters.id.labels"
+            [message]="tempFilters?.id.message"
+            [defaultValue]="tempFilters?.id.value"
+            [notValid]="tempFilters?.id.notValid"
+            (value)="onChangedValue($event, 'id')"
+          ></cie-input>
+        </div>
+        <div class="area">
+          <div class="label">{{ labels.name | translate }}<span class="require">*</span></div>
+          <cie-input
+            class="input-name"
+            [labels]="tempFilters.name.labels"
+            [message]="tempFilters?.name.message"
+            (value)="onChangedValue($event, 'name')"
+            [defaultValue]="tempFilters?.name.value"
+            [notValid]="tempFilters?.name.notValid"
+          ></cie-input>
+        </div>
+        <div class="area">
+          <div class="label">{{ labels?.status | translate }}</div>
+          <cie-select
+            [placeholder]="tempFilters?.status?.placeholder | translate"
+            [items]="tempFilters?.status?.types"
+            [selectedItem]="tempFilters?.status?.value"
+            (selected)="onChangedValue($event, 'status')"
+            data-test="status-select"
+          ></cie-select>
+        </div>
+        <div class="area">
+          <div class="label">{{ labels?.role | translate }}<span class="require">*</span></div>
+          <cie-select-multi
+            [items]="tempFilters?.role.types"
+            [label]="tempFilters?.role?.placeholder"
+            [selectedItem]="tempFilters?.role.value"
+            (selected)="onChangedValue($event, 'role')"
+            [notValid]="tempFilters?.role.notValid"
+            [message]="tempFilters?.role.message"
+            data-test="role-select"
+          ></cie-select-multi>
+        </div>
+        <div class="area select-group-multi">
+          <div class="label">{{ labels?.store | translate }}<span class="require">*</span></div>
+          <cie-select-group-multi
+            [groups]="tempFilters?.store.types"
+            [label]="tempFilters?.store?.placeholder"
+            [notValid]="tempFilters?.store.notValid"
+            [message]="tempFilters?.store.message"
+            [selectedItem]="tempFilters?.store.value"
+            (selected)="onChangedValue($event, 'store')"
+            data-test="store-select"
+          ></cie-select-group-multi>
+        </div>
+        <div class="checkbox">
+          <cie-checkbox
+            *ngIf="tempFilters?.isCheckCreateEdit"
+            (checked)="onChangedValue($event, 'passwordConfirm')"
+            [checkbox]="tempFilters?.passwordConfirm.value"
+          >
+            {{ labels.checkbox | translate }}
+          </cie-checkbox>
+        </div>
+      </div>
+      <hr />
+      <div class="action-buttons">
+        <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+          <div fxLayout="column" fxFlex="54" fxLayoutAlign="space-around end"></div>
+          <div fxLayout="column" fxFlex="23" fxLayoutAlign="space-around end">
+            <cie-button data-test="button-cancel" class="basic" (click)="onClickCancel()">
+              {{ labels?.cancelButton | translate }}
+            </cie-button>
+          </div>
+          <div fxLayout="column" fxFlex="23" fxLayoutAlign="space-around end">
+            <cie-button data-test="button-save" (click)="onClickSave()" class="primary">
+              {{ labels.saveButton | translate }}
+            </cie-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

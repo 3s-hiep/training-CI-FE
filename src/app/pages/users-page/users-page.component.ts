@@ -6,6 +6,9 @@ import { displayColumns, userTitle } from "./users-page.constant";
 import { UsersService } from "../../services/user/users.service";
 import { map, tap } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { MatDialog } from '@angular/material/dialog';
+import { DialogBoxComponent } from "../../components/dialog-box/dialog-box.component";
+// import { CreateDetailUserComponent } from "../../components/create-user/create-user-detail/create-user-detail.component";
 
 @Component({
   selector: "cie-users-page",
@@ -17,10 +20,11 @@ export class UsersPageComponent implements OnInit {
   public tableAction: ITableUsersAcrion;
   public displayColumns: IDisplayColumn[];
   public dataTable: IDataTable[];
+  public openDialog: Boolean = false;
 
   // public labelDialog = createDetailUser;
 
-  constructor(public usersService: UsersService) {
+  constructor(public usersService: UsersService, public dialog: MatDialog) {
     this.usersService.fetchDataUsers();
   }
 
@@ -48,8 +52,48 @@ export class UsersPageComponent implements OnInit {
   }
 
   public createUser() {
-    alert('okok')
+    // alert('okok');
+    this.openDialog = true;
+    // this.openDialogCreate();
+
+    // this.openDialogCreate('Add',{});
   }
 
+  // public handleDialogCreate() {
+  //   if(this.openDialog) {
+  //     const dialogRef = this.dialog.open(
+  //       CreateDetailUserComponent,
+  //       {
+
+  //       }
+  //     );
+  //   }
+  // }
+
+
+  public handleOpenDialogExample () {
+    this.openDialogCreate('Add',{});
+  }
+  public openDialogCreate(action,obj) : void {
+    obj.action = action;
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      width: '500px',
+      data:obj
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Add'){
+        // this.addRowData(result.data);
+        console.log(result);
+      }
+    });
+  }
+  // addRowData(row_obj){
+  //   var d = new Date();
+  //   this.dataTable.push({
+  //     id: ,
+  //     name:row_obj.name
+  //   });
+  //   this.table.renderRows();
 
 }
