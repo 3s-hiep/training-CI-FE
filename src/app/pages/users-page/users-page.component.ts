@@ -31,8 +31,9 @@ export class UsersPageComponent implements OnInit {
     this.pageTitle = userTitle;
     this.displayColumns = displayColumns;
 
-    this.dataTable = [];
     this.usersService.getDataUsers().pipe().subscribe((res: any) => {
+      this.dataTable = [];
+
       if (res && res['users']) {
         res['users'].map((item) => {
           let areas = item.areas.map(item => item.name).join(', ');

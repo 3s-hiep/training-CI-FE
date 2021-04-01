@@ -13,7 +13,7 @@ export class UsersEffects {
   //get user list
   public getUsers = createEffect(() => {
     return this.actions.pipe(
-      ofType<GetList>(ActionTypes.GetUsers),
+      ofType<GetList | AddUserSuccess>(ActionTypes.GetUsers, ActionTypes.AddUserSuccess),
       switchMap(action => {
         return this.backendService.getUserList().pipe(
           map((res: UserModel[]) => {
