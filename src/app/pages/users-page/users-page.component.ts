@@ -4,7 +4,6 @@ import { IDisplayColumn } from "../../components/table/table.component.i";
 import { IDataTable, ITableUsersAcrion } from "../../templates/users/users-template.i";
 import { displayColumns, userTitle } from "./users-page.constant";
 import { UsersService } from "../../services/user/users.service";
-import { map, tap } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from "../../components/dialog-box/dialog-box.component";
@@ -52,28 +51,9 @@ export class UsersPageComponent implements OnInit {
   }
 
   public createUser() {
-    // alert('okok');
-    this.openDialog = true;
-    // this.openDialogCreate();
-
-    // this.openDialogCreate('Add',{});
-  }
-
-  // public handleDialogCreate() {
-  //   if(this.openDialog) {
-  //     const dialogRef = this.dialog.open(
-  //       CreateDetailUserComponent,
-  //       {
-
-  //       }
-  //     );
-  //   }
-  // }
-
-
-  public handleOpenDialogExample () {
     this.openDialogCreate('Add',{});
   }
+
   public openDialogCreate(action,obj) : void {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
@@ -88,6 +68,11 @@ export class UsersPageComponent implements OnInit {
       }
     });
   }
+
+  public handleOpenDialogExample () {
+    this.openDialogCreate('Add',{});
+  }
+
   // addRowData(row_obj){
   //   var d = new Date();
   //   this.dataTable.push({
