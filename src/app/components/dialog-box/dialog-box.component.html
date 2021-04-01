@@ -1,5 +1,5 @@
 <div class="dialog-box">
-  <h1 mat-dialog-title class="padding-10">Row Action :: <strong>{{action}}</strong></h1>
+  <h1 mat-dialog-title class="padding-10"><strong>{{action}} User</strong></h1>
   <div mat-dialog-content class="field-condition">
     <mat-form-field >
       <input placeholder="ID" matInput [(ngModel)]="local_data.userId" >
@@ -19,8 +19,8 @@
     </ng-template> -->
   </div>
   <div mat-dialog-actions class="padding-10">
-    <button class="mr-10" mat-button (click)="doAction()">{{action}}</button>
-    <button class=""  mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+    <button class="mr-10" mat-button (click)="doAction()" mat-raised-button color="primary">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
   </div>
 </div>
 

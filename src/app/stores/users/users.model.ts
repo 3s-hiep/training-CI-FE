@@ -5,7 +5,7 @@ export interface User {
   userName: string;
   areas: ICommonName[];
   stores: ICommonName[];
-  deleteFlag: boolean;
+  deleteFlag?: boolean;
 }
 
 export interface ICommonName {

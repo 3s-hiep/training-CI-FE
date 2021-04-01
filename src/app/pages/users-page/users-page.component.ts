@@ -39,7 +39,7 @@ export class UsersPageComponent implements OnInit {
           let stores = item.stores.map(item => item.name).join(', ');
 
           // this.dataTable.push({...item, areas: areas, stores, action: "edit" });
-          this.dataTable = [...this.dataTable, { ...item, areas: areas, stores, action: "edit" }];
+          this.dataTable = [...this.dataTable, { ...item, areas: areas, stores, action: "Delete" }];
         })
       }
     });
@@ -64,21 +64,23 @@ export class UsersPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result.event == 'Add'){
         // this.addRowData(result.data);
-        console.log(result);
+        if(result.data) {
+
+          let params: UserModel = {
+            userId: '',
+            userName: '',
+            areas: [],
+            stores: []
+          };
+          params.userId = result.data.userId;
+          params.userName = result.data.userName;
+          params.areas = [ {name: result.data.areas } ];
+          params.stores = [ {name: result.data.stores } ];
+
+          this.usersService.addUser(params);
+        }
       }
     });
   }
-
-  public handleOpenDialogExample () {
-    this.openDialogCreate('Add',{});
-  }
-
-  // addRowData(row_obj){
-  //   var d = new Date();
-  //   this.dataTable.push({
-  //     id: ,
-  //     name:row_obj.name
-  //   });
-  //   this.table.renderRows();
 
 }

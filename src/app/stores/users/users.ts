@@ -7,8 +7,14 @@ export enum ActionTypes {
     GetUsers = "[Users API] Get API Users",
     GetUsersSuccess = "[Users API] Get success",
     GetUsersFailure = "[Users API] Get failure",
+
+    // Add User
+    AddUser = "[Add User API] Add API User",
+    AddUserSuccess = "[Add User API] Add User success",
+    AddUserFailure = "[Add User API] Add User failure"
 }
 
+// Get Users
 export class GetList implements Action {
   readonly type = ActionTypes.GetUsers;
   constructor() {}
@@ -22,7 +28,23 @@ export class GetListFailure implements Action {
   constructor(public payload: { reason?: string; code?: number }) {}
 }
 
-export type UserActions = GetList | GetListSuccess | GetListFailure;
+// Add User
+export class AddUser implements Action {
+  readonly type = ActionTypes.AddUser;
+  constructor( public payload: UserModel ) {}
+}
+
+export class AddUserSuccess implements Action {
+  readonly type = ActionTypes.AddUserSuccess;
+  constructor() {}
+}
+
+export class AddUserFailure implements Action {
+  readonly type = ActionTypes.AddUserFailure;
+  constructor(public payload: { reason?: string; code?: number }) {}
+}
+
+export type UserActions = GetList | GetListSuccess | GetListFailure | AddUser | AddUserSuccess | AddUserFailure;
 
 export interface State {
   users: UserModel[];

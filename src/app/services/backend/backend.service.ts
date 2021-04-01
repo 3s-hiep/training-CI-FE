@@ -94,4 +94,9 @@ export class BackendService {
     const url = 'http://localhost:3000/users';
     return this.http.get<UserModel[]>(url);
   }
+
+  public addUser(body) {
+    const url = 'http://localhost:3000/users';
+    return this.http.post(url, body)
+  }
 }
