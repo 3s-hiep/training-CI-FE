@@ -1,32 +1,16 @@
+
 <div class="cie-uses-page">
   <div class="section section-header-page" fxLayout="row" fxLayoutAlign="space-between center">
-    <cie-header-page data-test="header-page" [title]="pageTitle"
-      ><cie-button class="primary" data-test="button-create" (click)="onCreateButtonUsers()">{{
-        textButton | translate
-      }}</cie-button></cie-header-page
-    >
+    <cie-header-page data-test="header-page" [title]="pageTitle">
+      <cie-button class="primary" data-test="button-create" (click)="onCreateUser()">Create</cie-button>
+    </cie-header-page>
+
   </div>
   <div class="content-page content-uses-page">
-    <div class="section section-filter">
-      <cie-user-filter
-        data-test="user-filter"
-        [userAreas]="userAreas"
-        [userStores]="userStores"
-        [filters]="userFilter"
-        [labels]="labelsFilter"
-        (filtered)="onFilters($event)"
-        (selectArea)="onSelectArea($event)"
-        (clearFilter)="onClearFilter()"
-        fxFlex="100%"
-      ></cie-user-filter>
-    </div>
     <div class="section section-table">
       <cie-table
         data-test="user-table"
-        (pagination)="onPagination($event)"
-        [paginationOptions]="tableAction?.paginationOptions"
-        [havePagination]="tableAction?.havePagination"
-        [displayedColumns]="tableAction?.displayedColumns"
+        [displayedColumns]="displayColumns"
         [data]="dataTable"
       ></cie-table>
     </div>

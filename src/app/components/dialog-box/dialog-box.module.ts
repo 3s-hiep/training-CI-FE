@@ -1,0 +1,17 @@
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { TranslateModule } from "@ngx-translate/core";
+import { DialogBoxComponent } from "./dialog-box.component";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule} from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [DialogBoxComponent],
+  exports: [DialogBoxComponent],
+  imports: [CommonModule, MatCheckboxModule, TranslateModule, MatFormFieldModule, MatInputModule,MatButtonModule, FormsModule],
+})
+export class DialogBoxModule {}

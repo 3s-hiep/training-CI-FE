@@ -19,6 +19,7 @@ import { NotificationService } from "./services/notification/notification.servic
 import { MasterModule } from "./components/master/master.module";
 import { TranslateService, TranslateStore } from "@ngx-translate/core";
 import { UserPageModule } from "./pages/users-page/users-page.module";
+import { UsersEffects } from "./stores/users/users.effects";
 
 registerLocaleData(localeEn);
 
@@ -41,7 +42,7 @@ const DebugModules = environment.production
       },
     }),
     StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([UsersEffects]),
     ...DebugModules,
     BaseModule,
     BrowserAnimationsModule,

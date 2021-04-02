@@ -1,57 +1,41 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { LabelledValue, Labels, UserFilter } from "../../components/user-filter/user-filter.i";
-import { IDataTable, ITableAction } from "./users-template.i";
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
+import { UserModel } from "../../stores/users/users.model";
+import { IDisplayColumn } from "../../components/table/table.component.i";
+// import { LabelledValue, Labels, UserFilter } from "../../components/user-filter/user-filter.i";
+import { IDataTable, ITableAction, ITableUsersAcrion } from "./users-template.i";
 
 @Component({
   selector: "cie-users-template",
   templateUrl: "./users-template.component.html",
   styleUrls: ["./users-template.component.scss"],
 })
-export class UsersTemplateComponent implements OnInit {
+export class UsersTemplateComponent implements OnInit, OnChanges {
   @Input() pageTitle: string;
-  @Input() textButton: string;
 
-  @Input() tableAction: ITableAction;
+  @Input() tableAction: ITableUsersAcrion;
+
+  @Input() displayColumns: IDisplayColumn[];
 
   @Input() dataTable: IDataTable[];
 
-  @Input() userFilter?: UserFilter;
+  @Output() createUser = new EventEmitter();
 
-  @Input() userAreas?: LabelledValue<string>[];
-
-  @Input() userStores?: LabelledValue<string>[];
-
-  @Input() labelsFilter?: Labels;
-
-  @Output() selectArea = new EventEmitter<string>();
-
-  @Output() clearFilter = new EventEmitter();
-
-  @Output() filtered = new EventEmitter<UserFilter>();
-
-  @Output() pagination = new EventEmitter<any>();
-  @Output() createButtonUsers = new EventEmitter();
+  @Output() handleOpenDialog = new EventEmitter();
 
   constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log("d", this.dataTable);
+  }
   ngOnInit(): void {
-    console.log(this.userAreas);
+
   }
 
-  public onFilters(data: UserFilter) {
-    this.filtered.emit(data);
+  public onCreateUser() {
+    this.createUser.emit();
   }
 
-  public onPagination(data: any) {
-    this.pagination.emit(data);
-  }
-  public onCreateButtonUsers() {
-    this.createButtonUsers.emit();
-  }
-  public onSelectArea(area: string) {
-    this.selectArea.emit(area);
+  public onOpenDialog() {
+    this.handleOpenDialog.emit();
   }
 
-  public onClearFilter() {
-    this.clearFilter.emit();
-  }
 }
