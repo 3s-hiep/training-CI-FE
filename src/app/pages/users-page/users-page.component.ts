@@ -48,8 +48,7 @@ export class UsersPageComponent implements OnInit {
 
   }
 
-  ngOnDestroy(): void {
-  }
+  ngOnDestroy(): void { }
 
   public createUser() {
     this.openDialogCreate('Add',{});
